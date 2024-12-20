@@ -10,11 +10,28 @@ tune_station() {
   ./$stationfile
 }
 
+logo1() {
+  echo ""
+}
+
 check_apps() {
   if command -v mpg123 >/dev/null; then
-    echo "[...]: App mpg123 is installed." > /dev/console
+    echo "[...]: App mpg123 is installed."
   else
-    echo "[-!-]: App mpg123 not installed."
+    echo -e "\e[31m[-!-]: App mpg123 not installed.\e[0m"
+    sleep 0.6
+    echo "[...]: Installing mpg123..."
+    sleep 0.2
+    sudo apt-get install mpg123
+    sleep 1.1
+    if command -v mpg123 >/dev/null; then
+      echo "[...]: App successfully installed."
+    else
+      echo -e "\e[31m[-!-]: Error installing app.\e[0m"
+      echo -e "\e[31m[-!-]: Get help before trying again.\e[0m"
+      sleep 0.6
+      exit
+    fi
   fi
 }
 
