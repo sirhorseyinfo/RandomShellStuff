@@ -14,6 +14,11 @@ logo1() {
   echo ""
 }
 
+next_step() {
+  chmod +x station/909.sh
+  ./station/909.sh
+}
+
 check_apps() {
   if command -v mpg123 >/dev/null; then
     echo "[...]: App mpg123 is installed."
@@ -50,5 +55,12 @@ sleep 0.6
 echo "[...]: Checking required apps..."
 sleep 0.2
 check_apps
+
+echo "[...]: Apps installed."
+sleep 0.6
+echo "[...]: Continuing..."
+sleep 0.7
+clear
+next_step
 
 exit
