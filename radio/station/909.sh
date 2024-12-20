@@ -8,11 +8,11 @@ station_logo() {
 }
 
 rotate() {
-  randnum=$((RANDOM % 8 + 1))
+  randnum=$((RANDOM % 1 + 1))
   rotation_var="rotation_$randnum"
   case $randnum in
     1)
-      echo "Executing task for rotation 1"
+      echo "hi"
       ;;
     2)
       echo "Executing task for rotation 2"
